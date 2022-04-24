@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.outliners.login.model;
 
 import java.io.Serializable;
 

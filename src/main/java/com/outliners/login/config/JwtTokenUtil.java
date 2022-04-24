@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.outliners.login.config;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;

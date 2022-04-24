@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.outliners.login.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +11,7 @@ public class UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer userId;
-	private Integer userName;
+	private String userName;
 	private String password;
 	private String role;
 	private String approver;
@@ -21,11 +21,18 @@ public class UserDetails {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	public Integer getUserName() {
+	
+	public String getUserName() {
 		return userName;
 	}
-	public void setUserName(Integer userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	public String getApprover() {
+		return approver;
+	}
+	public void setApprover(String approver) {
+		this.approver = approver;
 	}
 	public String getPassword() {
 		return password;

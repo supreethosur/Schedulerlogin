@@ -1,8 +1,9 @@
-package com.example.demo.service;
+package com.outliners.login.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,8 +12,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.outliners.login.repository.UserDetailsRepository;
+
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
+	
+	@Autowired
+	UserDetailsRepository userDetailsRepo;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -32,9 +38,10 @@ public class JwtUserDetailsService implements UserDetailsService {
 		HashMap<String,String> userCredentials=new HashMap<>();
 		PasswordEncoder encoder=new BCryptPasswordEncoder();
 		HashMap<String,String> userData=new HashMap<>();
-		userCredentials.put("admin1", encoder.encode("admin1pwd"));
-		userCredentials.put("admin2", encoder.encode("admin2pwd"));
-		if(userCredentials.get(username)!=null) {
+		
+		com.outliners.login.entity.UserDetails user= userDetailsRepo.findByUserName(username);
+		if(user!=null) {
+			userCredentials.put(username, user.getPassword());
 			userData.put(username, userCredentials.get(username));
 			return userData;
 		}

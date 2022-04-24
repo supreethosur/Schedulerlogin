@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.outliners.login.config;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.example.demo.service.JwtUserDetailsService;
+import com.outliners.login.service.JwtUserDetailsService;
 
 import io.jsonwebtoken.ExpiredJwtException;
 

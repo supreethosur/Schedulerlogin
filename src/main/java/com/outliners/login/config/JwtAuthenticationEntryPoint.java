@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.outliners.login.config;
 
 import java.io.IOException;
 import java.io.Serializable;
