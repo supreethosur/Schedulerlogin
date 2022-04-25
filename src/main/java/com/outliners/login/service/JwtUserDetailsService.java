@@ -45,6 +45,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 			userData.put(username, userCredentials.get(username));
 			return userData;
 		}
+
 		return null;
 	}
 	

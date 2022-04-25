@@ -37,9 +37,7 @@ public class JwtAuthenticationController {
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 		PasswordEncoder encoder=new BCryptPasswordEncoder();
-		System.out.println(encoder.encode("supreet@123")+ " hello");
-		System.out.println(encoder.encode("supreet@123")+ " hello");
-		System.out.println(authenticationRequest);
+		
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
 		final UserDetails userDetails = userDetailsService
